@@ -33,10 +33,10 @@
 
 "use strict"
 
-let BattleDome = BattleDome || {}
+var BattleDome = BattleDome || {}
 
 //MAIN ROBOT//
-let Robot = function() {
+var Robot = function() {
   this.damage = null
   this.health = null
   this.speed = null
@@ -50,7 +50,7 @@ const range = (min, max) => Math.floor(Math.random() * (max - min + 1)) + min
 
 
 // TYPE 1 - AIR //
-let Air = () => {
+var Air = function() {
   this.damage = Math.floor(Math.random() * 10 + 10)
   this.health = range(60, 90)
   this.speed = 10
@@ -59,7 +59,7 @@ let Air = () => {
 Air.prototype = new Robot()
 
 // TYPE 2 - GROUND //
-let Ground = () => {
+var Ground = function() {
   this.damage = Math.floor(Math.random() * 12 + 12)
   this.health = range(70, 100)
   this.speed = 5
@@ -69,7 +69,7 @@ let Ground = () => {
 Ground.prototype = new Robot()
 
 // TYPE 3 - HYBRID //
-let Hybrid = () => {
+var Hybrid = function() {
   this.damage = Math.floor(Math.random() * 11 + 11)
   this.health = range(80, 110)
   this.speed = 8
@@ -87,7 +87,7 @@ Hybrid.prototype = new Robot()
 ///// AIR MODEL 1 //////
 ////////////////////////
 
-let AirLight = (name) => {
+var AirLight = function(name) {
   this.name = name
   this.damage = this.damage - 5
   this.health = this.health
@@ -99,7 +99,8 @@ AirLight.prototype = new Air()
 ///// AIR MODEL 2 //////
 ////////////////////////
 
-let AirMed = (name) => {
+var AirMed = function(name) {
+  this.name = name
   this.damage = this.damage
   this.health = this.health
   this.speed = this.speed
@@ -110,7 +111,8 @@ AirMed.prototype = new Air()
 ///// AIR MODEL 3 //////
 ////////////////////////
 
-let AirHeavy = (name) => {
+var AirHeavy = function(name) {
+  this.name = name
   this.damage = this.damage + 5
   this.health = this.health
   this.speed = this.speed - 3
@@ -121,7 +123,8 @@ AirHeavy.prototype = new Air()
 ///// GROUND MODEL 1 //////
 ///////////////////////////
 
-let GroundLight = (name) => {
+var GroundLight = function(name) {
+  this.name = name
   this.damage = this.damage - 10
   this.health = this.health
   this.speed = this.speed + 2
@@ -132,7 +135,8 @@ GroundLight.prototype = new Ground()
 ///// GROUND MODEL 2 //////
 ///////////////////////////
 
-let GroundMed = (name) => {
+var GroundMed = function(name) {
+  this.name = name
   this.damage = this.damage
   this.health = this.health
   this.speed = this.speed
@@ -143,7 +147,8 @@ GroundMed.prototype = new Ground()
 ///// GROUND MODEL 3 //////
 ///////////////////////////
 
-let GroundHeavy = (name) => {
+var GroundHeavy = function(name) {
+  this.name = name
   this.damage = this.damage + 10
   this.health = this.health + 2
   this.speed = this.speed - 3
@@ -154,7 +159,8 @@ GroundHeavy.prototype = new Ground()
 ///// HYBRD MODEL 1 //////
 //////////////////////////
 
-let HybridLight = (name) => {
+var HybridLight = function(name) {
+  this.name = name
   this.damage = this.damage - 5
   this.health = this.health
   this.speed = this.speed + 3
@@ -165,7 +171,8 @@ HybridLight.prototype = new Hybrid()
 ///// HYBRD MODEL 2 //////
 //////////////////////////
 
-let HybridMed = (name) => {
+var HybridMed = function(name) {
+  this.name = name
   this.damage = this.damage
   this.health = this.health
   this.speed = this.speed
@@ -176,19 +183,14 @@ HybridMed.prototype = new Hybrid()
 ///// HYBRD MODEL 3 //////
 //////////////////////////
 
-let HybridHeavy = (name) => {
+var HybridHeavy = function(name) {
+  this.name = name
   this.damage = this.damage + 5
   this.health = this.health
   this.speed = this.speed - 2
 }
 
 HybridHeavy.prototype = new Hybrid()
-
-
-
-
-
-
 
 
 
