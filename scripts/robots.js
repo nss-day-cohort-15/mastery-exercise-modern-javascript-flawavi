@@ -31,18 +31,19 @@
 // THREE ROBOT TYPES
 // TWO MODELS FOR EACH TYPE
 
-"use strict"
+"use strict";
 
-var BattleDome = BattleDome || {}
+// var events = require("./events");
 
+var BattleDome = BattleDome || {};
 //MAIN ROBOT//
 var Robot = function() {
-  this.damage = null
-  this.health = null
-  this.speed = null
-}
+  this.damage = null;
+  this.health = null;
+  this.speed = null;
+};
 
-const range = (min, max) => Math.floor(Math.random() * (max - min + 1)) + min
+const range = (min, max) => Math.floor(Math.random() * (max - min + 1)) + min;
 
 //////////////////
 ///// TYPES //////
@@ -51,31 +52,31 @@ const range = (min, max) => Math.floor(Math.random() * (max - min + 1)) + min
 
 // TYPE 1 - AIR //
 var Air = function() {
-  this.damage = Math.floor(Math.random() * 10 + 10)
-  this.health = range(60, 90)
-  this.speed = 10
-}
+  this.damage = Math.floor(Math.random() * 10 + 10);
+  this.health = range(60, 90);
+  this.speed = 10;
+};
 
-Air.prototype = new Robot()
+Air.prototype = new Robot();
 
 // TYPE 2 - GROUND //
 var Ground = function() {
-  this.damage = Math.floor(Math.random() * 12 + 12)
-  this.health = range(70, 100)
-  this.speed = 5
+  this.damage = Math.floor(Math.random() * 12 + 12);
+  this.health = range(70, 100);
+  this.speed = 5;
 
-}
+};
 
-Ground.prototype = new Robot()
+Ground.prototype = new Robot();
 
 // TYPE 3 - HYBRID //
 var Hybrid = function() {
-  this.damage = Math.floor(Math.random() * 11 + 11)
-  this.health = range(80, 110)
-  this.speed = 8
-}
+  this.damage = Math.floor(Math.random() * 11 + 11);
+  this.health = range(80, 110);
+  this.speed = 8;
+};
 
-Hybrid.prototype = new Robot()
+Hybrid.prototype = new Robot();
 
 
 
@@ -87,115 +88,121 @@ Hybrid.prototype = new Robot()
 ///// AIR MODEL 1 //////
 ////////////////////////
 
-var AirLight = function(name) {
-  this.name = name
-  this.damage = this.damage - 5
-  this.health = this.health
-  this.speed = this.speed + 3
-}
+BattleDome.AirLight = function(name) {
+  this.name = name;
+  this.damage = this.damage - 5;
+  this.health = this.health;
+  this.speed = this.speed + 3;
+};
 
-AirLight.prototype = new Air()
+BattleDome.AirLight.prototype = new Air();
+
 ////////////////////////
 ///// AIR MODEL 2 //////
 ////////////////////////
 
-var AirMed = function(name) {
-  this.name = name
-  this.damage = this.damage
-  this.health = this.health
-  this.speed = this.speed
-}
+BattleDome.AirMed = function(name) {
+  this.name = name;
+  this.damage = this.damage;
+  this.health = this.health;
+  this.speed = this.speed;
+};
 
-AirMed.prototype = new Air()
+BattleDome.AirMed.prototype = new Air();
+
 ////////////////////////
 ///// AIR MODEL 3 //////
 ////////////////////////
 
-var AirHeavy = function(name) {
-  this.name = name
-  this.damage = this.damage + 5
-  this.health = this.health
-  this.speed = this.speed - 3
-}
+BattleDome.AirHeavy = function(name) {
+  this.name = name;
+  this.damage = this.damage + 5;
+  this.health = this.health;
+  this.speed = this.speed - 3;
+};
 
-AirHeavy.prototype = new Air()
+BattleDome.AirHeavy.prototype = new Air();
+
 ///////////////////////////
 ///// GROUND MODEL 1 //////
 ///////////////////////////
 
-var GroundLight = function(name) {
-  this.name = name
-  this.damage = this.damage - 10
-  this.health = this.health
-  this.speed = this.speed + 2
-}
+BattleDome.GroundLight = function(name) {
+  this.name = name;
+  this.damage = this.damage - 10;
+  this.health = this.health;
+  this.speed = this.speed + 2;
+};
 
-GroundLight.prototype = new Ground()
+BattleDome.GroundLight.prototype = new Ground();
+
 ///////////////////////////
 ///// GROUND MODEL 2 //////
 ///////////////////////////
 
-var GroundMed = function(name) {
-  this.name = name
-  this.damage = this.damage
-  this.health = this.health
-  this.speed = this.speed
-}
+BattleDome.GroundMed = function(name) {
+  this.name = name;
+  this.damage = this.damage;
+  this.health = this.health;
+  this.speed = this.speed;
+};
 
-GroundMed.prototype = new Ground()
+BattleDome.GroundMed.prototype = new Ground();
+
 ///////////////////////////
 ///// GROUND MODEL 3 //////
 ///////////////////////////
 
-var GroundHeavy = function(name) {
-  this.name = name
-  this.damage = this.damage + 10
-  this.health = this.health + 2
-  this.speed = this.speed - 3
-}
+BattleDome.GroundHeavy = function(name) {
+  this.name = name;
+  this.damage = this.damage + 10;
+  this.health = this.health + 2;
+  this.speed = this.speed - 3;
+};
 
-GroundHeavy.prototype = new Ground()
+BattleDome.GroundHeavy.prototype = new Ground();
+
 //////////////////////////
 ///// HYBRD MODEL 1 //////
 //////////////////////////
 
-var HybridLight = function(name) {
-  this.name = name
-  this.damage = this.damage - 5
-  this.health = this.health
-  this.speed = this.speed + 3
-}
+BattleDome.HybridLight = function(name) {
+  this.name = name;
+  this.damage = this.damage - 5;
+  this.health = this.health;
+  this.speed = this.speed + 3;
+};
 
-HybridLight.prototype = new Hybrid()
+BattleDome.HybridLight.prototype = new Hybrid();
+
 //////////////////////////
 ///// HYBRD MODEL 2 //////
 //////////////////////////
 
-var HybridMed = function(name) {
-  this.name = name
-  this.damage = this.damage
-  this.health = this.health
-  this.speed = this.speed
-}
+BattleDome.HybridMed = function(name) {
+  this.name = name;
+  this.damage = this.damage;
+  this.health = this.health;
+  this.speed = this.speed;
+};
 
-HybridMed.prototype = new Hybrid()
+BattleDome.HybridMed.prototype = new Hybrid();
+
 //////////////////////////
 ///// HYBRD MODEL 3 //////
 //////////////////////////
 
-var HybridHeavy = function(name) {
-  this.name = name
-  this.damage = this.damage + 5
-  this.health = this.health
-  this.speed = this.speed - 2
-}
+BattleDome.HybridHeavy = function(name) {
+  this.name = name;
+  this.damage = this.damage + 5;
+  this.health = this.health;
+  this.speed = this.speed - 2;
+};
 
-HybridHeavy.prototype = new Hybrid()
-
-
+BattleDome.HybridHeavy.prototype = new Hybrid();
 
 
-
+module.exports = BattleDome;
 
 
 
