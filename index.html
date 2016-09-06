@@ -7,46 +7,49 @@
 <body>
   <div class="container">
     <h1>Robot Battledome</h1>
-      <div class="">
-      <label for="player1-name">Player 1: </label>
-      <input type="text" id="player1-name" name="robot1" placeholder="Enter Name">
-        <select id="select-robot1">
-          <option>Select A Robot</option>
-          <option value="AirLight">AirLight</option>
-          <option value="AirMed">AirMed</option>
-          <option value="AirHeavy">AirHeavy</option>
-          <option value="GroundLight">GroundLight</option>
-          <option value="GroundMed">GroundMed</option>
-          <option value="GroundHeavy">GroundHeavy</option>
-          <option value="HybridLight">HybridLight</option>
-          <option value="HybridMed">HybridMed</option>
-          <option value="HybridHeavy">HybridHeavy</option>
-        </select>
-      <label for="player2-name">Player 2: </label>
-      <input type="text" id="player2-name" name="robot2" placeholder="Enter Name">
-        <select id="select-robot2">
-          <option>Select A Robot</option>
-          <option value="AirLight">AirLight</option>
-          <option value="AirMed">AirMed</option>
-          <option value="AirHeavy">AirHeavy</option>
-          <option value="GroundLight">GroundLight</option>
-          <option value="GroundMed">GroundMed</option>
-          <option value="GroundHeavy">GroundHeavy</option>
-          <option value="HybridLight">HybridLight</option>
-          <option value="HybridMed">HybridMed</option>
-          <option value="HybridHeavy">HybridHeavy</option>
-        </select>
-      </div>
-      <div class="confirm-btn">
-        <button id="confirm" class="btn">Ok</button>
-      </div>
-      <div class="btn-div">
-        <button class="btn main-btn" id="attack-btn">Attack!</button>
+      <div class="row">
+        <div class="select1 col-md-4">
+          <label for="player1-name">Player 1: </label>
+          <div>
+          <input class="input1" type="text" id="player1-name" name="robot1" placeholder="Enter Name"></div>
+            <select id="select-robot1">
+              <option>Select A Robot</option>
+              <option value="AirLight">AirLight</option>
+              <option value="AirMed">AirMed</option>
+              <option value="AirHeavy">AirHeavy</option>
+              <option value="GroundLight">GroundLight</option>
+              <option value="GroundMed">GroundMed</option>
+              <option value="GroundHeavy">GroundHeavy</option>
+              <option value="HybridLight">HybridLight</option>
+              <option value="HybridMed">HybridMed</option>
+              <option value="HybridHeavy">HybridHeavy</option>
+            </select>
+        </div>
+        <div class="select2 col-md-4">
+          <label for="player2-name">Player 2: </label>
+          <div>
+          <input class="input2" type="text" id="player2-name" name="robot2" placeholder="Enter Name"></div>
+            <select id="select-robot2">
+              <option>Select A Robot</option>
+              <option value="AirLight">AirLight</option>
+              <option value="AirMed">AirMed</option>
+              <option value="AirHeavy">AirHeavy</option>
+              <option value="GroundLight">GroundLight</option>
+              <option value="GroundMed">GroundMed</option>
+              <option value="GroundHeavy">GroundHeavy</option>
+              <option value="HybridLight">HybridLight</option>
+              <option value="HybridMed">HybridMed</option>
+              <option value="HybridHeavy">HybridHeavy</option>
+            </select>
+          </div>
+        </div>
+  </div>
+      <div class="btn-row row">
+          <button id="attack-btn" class="buttons attack-btn btn btn-warning">>   >  > >Attack< <  <   <</button>
       </div>
       <div id="battle-zone">
 
       </div>
-  </div>
 
 
 <script type="text/javascript" src="bower_components/jquery/dist/jquery.min.js"></script>

@@ -10,9 +10,10 @@ let robots = require("./robots");
 // $("#attack-btn").click(attackFn)
 
 
-$("#confirm").click(function(){
 
-  var player1Name = $("#player1-name").val(),
+let playerStats = (player1, player2) => {
+
+  let player1Name = $("#player1-name").val(),
       player2Name = $("#player2-name").val(),
 
       player1Robot = $("#select-robot1").val(),
@@ -21,27 +22,31 @@ $("#confirm").click(function(){
       user1 = new robots[player1Robot](),
       user2 = new robots[player2Robot]();
 
-  if (!player1Name || !player2Name || !player1Robot || !player2Robot) {
+      user1.name = player1Name;
+      user2.name = player2Name;
+
+      console.log(user1.name);
+
+  if (!player1Name || !player2Name || !user1 || !user2) {
     alert("Both y'all needa choose a name and a robot ya dingus.");
   }
-  console.log(robots[player1Robot]);
-  console.log(robots[player2Robot]);
-  console.log("Player 1's name is", player1Name, ".", "Player 2's name is", player2Name, ".");
 
+  console.log("Player 1 the", user1, "is named ", player1Name, ".", "Player 2 the", user2, "is named ", player2Name, ".");
 
-});
+  player1 = `
+  <div class="output1">
+  <p>${user1.name} the ${user1.player1Robot}</p>
+  <div class="health">Health: ${user1.health}</div></div>
+  `;
+  player2 = `
+  <div class="output2">
+  <p>${user2.name} the ${user2.player2Robot}</p>
+  <div class="health">Health: ${user2.health}</div></div>
+`;
 
+  $("#battle-zone").append(player1, player2);
 
-const playerStats = (player1, player2) => {
-  let player1Stats = `<p>${player1.player1Name} the ${player1.robot}</p>` +
-                     `<div class="health">Health: ${player1.health}</div>`,
-      player2Stats = `<p>${player2.player2Name} the ${player2.robot}</p>` +
-                     `<div class="health">Health: ${player2.health}</div>`;
-
-  $("#battle-zone").html(player1Stats);
-
-  $("#battle-zone").html(player1Stats);
-  };
+};
 
 $("#attack-btn").on("click", function(){
   console.log("dogs");
@@ -49,7 +54,7 @@ $("#attack-btn").on("click", function(){
 });
 
 
-module.exports = {playerStats};
+module.exports = playerStats;
 
 
 
@@ -95,8 +100,6 @@ var attack = require("./attack");
 // TWO MODELS FOR EACH TYPE
 
 "use strict";
-
-// var events = require("./events");
 
 var BattleDome = BattleDome || {};
 //MAIN ROBOT//

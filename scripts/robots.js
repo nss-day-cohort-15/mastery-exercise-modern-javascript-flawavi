@@ -33,8 +33,6 @@
 
 "use strict";
 
-// var events = require("./events");
-
 var BattleDome = BattleDome || {};
 //MAIN ROBOT//
 var Robot = function() {
